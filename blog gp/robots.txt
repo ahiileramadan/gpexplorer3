@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://gpexplorer3-merch.fr/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Allow all main content
+Allow: /index.html
+Allow: /where-to-buy.html
+Allow: /faq.html
+Allow: /about.html
+Allow: /blog/
+Allow: /images/

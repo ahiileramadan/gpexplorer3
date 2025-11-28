@@ -1,0 +1,810 @@
+/* ============================================
+   GP EXPLORER 3 - DESIGN SYSTEM
+   Merchandising et Maillots Guide
+   ============================================ */
+
+/* Import Luxury Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ============================================
+   ROOT VARIABLES - Simplified Color Palette
+   ============================================ */
+:root {
+  /* Palette GP Explorer 3 - Rouge et noir */
+  --wimbledon-green: #dc2626;
+  --white: #ffffff;
+  --light-gray: #f5f5f5;
+  --charcoal: #1a1a1a;
+  --gold-accent: #fbbf24;
+  
+  /* Shadows & Effects */
+  --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.04);
+  --shadow-medium: 0 4px 30px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 8px 40px rgba(0, 0, 0, 0.12);
+  --shadow-luxury: 0 10px 50px rgba(220, 38, 38, 0.15);
+  
+  /* Typography */
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Spacing Scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-elegant: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   BASE RESET & TYPOGRAPHY
+   ============================================ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--charcoal);
+  background-color: var(--white);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--charcoal);
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+h4 {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+p {
+  margin-bottom: var(--space-sm);
+  line-height: 1.8;
+}
+
+a {
+  color: var(--wimbledon-green);
+  text-decoration: none;
+  transition: all var(--transition-smooth);
+}
+
+a:hover {
+  color: var(--wimbledon-green);
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   CONTAINER SYSTEM
+   ============================================ */
+.container,
+.container-center {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .container,
+  .container-center {
+    padding: 0 var(--space-md);
+  }
+}
+
+/* ============================================
+   DISCLAIMER BANNER
+   ============================================ */
+.disclaimer-banner {
+  background-color: var(--light-gray);
+  padding: 12px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  border-bottom: 2px solid var(--gold-accent);
+  font-weight: 600;
+  color: var(--charcoal);
+}
+
+/* ============================================
+   HEADER & NAVIGATION - Luxury Edition
+   ============================================ */
+.header-bar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0, 86, 63, 0.1);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-smooth);
+}
+
+.layout-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-md) 0;
+}
+
+/* Logo & Brand */
+.navbar-main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.align-items-center {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.small-logo {
+  height: 50px;
+  width: auto;
+  max-width: 250px;
+  object-fit: contain;
+}
+
+.brand-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--wimbledon-green);
+  letter-spacing: -0.02em;
+}
+
+/* Navigation Links */
+.dropdown-navbar {
+  display: flex !important;
+  align-items: center;
+}
+
+/* Le .hidden sera override sur desktop */
+@media (min-width: 1025px) {
+  .dropdown-navbar.hidden {
+    display: flex !important;
+  }
+}
+
+.nav-links-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item-link {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  padding: var(--space-xs) 0;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-smooth);
+  letter-spacing: -0.01em;
+}
+
+.menu-item-link:hover,
+.menu-item-link.active {
+  color: var(--wimbledon-green);
+  border-bottom-color: var(--gold-accent);
+}
+
+/* Mobile Menu */
+.menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+}
+
+.hamburger {
+  width: 30px;
+  height: 20px;
+  position: relative;
+}
+
+.hamburger span,
+.hamburger span::before,
+.hamburger span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: var(--wimbledon-green);
+  transition: all var(--transition-smooth);
+}
+
+@media (max-width: 1024px) {
+  .dropdown-navbar {
+    display: none;
+  }
+  
+  .menu-button {
+    display: block;
+  }
+  
+  .dropdown-navbar.show {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-medium);
+  }
+  
+  .nav-links-list {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+}
+
+/* ============================================
+   HERO SECTIONS - Luxury Treatment
+   ============================================ */
+.promo-section {
+  position: relative;
+  padding: var(--space-2xl) 0;
+  overflow: hidden;
+}
+
+.banner-background {
+  position: relative;
+  background: linear-gradient(135deg, var(--wimbledon-green) 0%, #b91c1c 100%);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  box-shadow: var(--shadow-luxury);
+  overflow: hidden;
+}
+
+.banner-background::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 80%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.overlay-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.content-section {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: var(--space-md);
+  letter-spacing: -0.03em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  letter-spacing: 0.01em;
+}
+
+/* ============================================
+   CARD SYSTEM - Luxury Cards
+   ============================================ */
+.card,
+.card-style-section,
+.faq-item {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(220, 38, 38, 0.08);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-elegant);
+}
+
+.card:hover,
+.card-style-section:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+  border-color: var(--gold-accent);
+}
+
+.card-body,
+.adaptive-padding-section {
+  padding: var(--space-lg);
+}
+
+.card-img-top img {
+  border-radius: var(--radius-lg);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ============================================
+   BUTTONS - Luxury Edition
+   ============================================ */
+.primary-button,
+.register-button-style,
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--white);
+  background: var(--wimbledon-green);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-elegant);
+  box-shadow: var(--shadow-medium);
+  letter-spacing: 0.02em;
+}
+
+.primary-button:hover,
+.register-button-style:hover,
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-luxury);
+  color: var(--white);
+  background: #b91c1c;
+}
+
+.secondary-button,
+.signup-button-style {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.5rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--wimbledon-green);
+  background: var(--white);
+  border: 2px solid var(--wimbledon-green);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-smooth);
+}
+
+.secondary-button:hover,
+.signup-button-style:hover {
+  background: var(--wimbledon-green);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   SECTIONS & SPACING
+   ============================================ */
+.section-spacing-large,
+.vertical-spacing-large,
+.padding-section {
+  padding: var(--space-2xl) 0;
+}
+
+.light-purple-background,
+.warm-gray {
+  background: var(--light-gray);
+}
+
+.white-background {
+  background: var(--white);
+}
+
+/* ============================================
+   HEADINGS & TEXT STYLES
+   ============================================ */
+.heading-large-bold,
+.headline-text-bold {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: var(--charcoal);
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  letter-spacing: -0.02em;
+}
+
+.subtitle-secondary-emphasis {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 600;
+  color: var(--wimbledon-green);
+  margin-bottom: var(--space-md);
+}
+
+.body-text-muted,
+.content-description-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #5a5a5a;
+}
+
+/* ============================================
+   STATS & METRICS - Luxury Display
+   ============================================ */
+.stats-display {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.stat-title,
+.metric-highlight {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  color: var(--gold-accent);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.stat-description,
+.metric-details {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ============================================
+   GRID LAYOUTS - Responsive & Luxury
+   ============================================ */
+.responsive-layout,
+.responsive-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .responsive-grid-layout {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ============================================
+   FOOTER - Dark Theme avec bon contraste
+   ============================================ */
+.full-width-footer {
+  background: var(--charcoal);
+  color: var(--white);
+  padding: var(--space-2xl) 0 var(--space-lg);
+  margin-top: var(--space-2xl);
+  border-top: 3px solid var(--gold-accent);
+}
+
+.footer-heading {
+  color: var(--white);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.interactive-navigation {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  list-style: none;
+  margin-bottom: var(--space-lg);
+}
+
+.link-color-change {
+  color: var(--white);
+  font-weight: 500;
+  transition: all var(--transition-smooth);
+}
+
+.link-color-change:hover {
+  color: var(--gold-accent);
+}
+
+.muted-text {
+  color: #999999;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   FORMS - Luxury Input Design
+   ============================================ */
+.standard-input-field,
+.email-input-design,
+input,
+textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--charcoal);
+  background: var(--white);
+  border: 2px solid rgba(0, 86, 63, 0.1);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-smooth);
+}
+
+.standard-input-field:focus,
+.email-input-design:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--wimbledon-green);
+  box-shadow: 0 0 0 4px rgba(220, 38, 38, 0.1);
+}
+
+/* ============================================
+   TABLES - Luxury Table Design
+   ============================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+}
+
+thead {
+  background: var(--wimbledon-green);
+  color: var(--white);
+}
+
+th {
+  padding: 1.25rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-align: left;
+  letter-spacing: 0.05em;
+}
+
+td {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid rgba(220, 38, 38, 0.05);
+}
+
+tr:hover {
+  background: rgba(220, 38, 38, 0.02);
+}
+
+/* ============================================
+   LISTS - Luxury Styling
+   ============================================ */
+ul, ol {
+  margin: var(--space-md) 0;
+  padding-left: var(--space-lg);
+}
+
+li {
+  margin-bottom: var(--space-xs);
+  line-height: 1.8;
+}
+
+ul li::marker {
+  color: var(--gold-accent);
+}
+
+/* ============================================
+   IMAGES & MEDIA
+   ============================================ */
+.full-width-image,
+.image-showcase {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-medium);
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.hidden {
+  display: none !important;
+}
+
+.show {
+  display: flex !important;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.relative {
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* Text Alignment */
+.text-center {
+  text-align: center;
+}
+
+/* Spacing Utilities */
+.mb-0 { margin-bottom: 0; }
+.mt-1 { margin-top: var(--space-xs); }
+.mb-1 { margin-bottom: var(--space-xs); }
+.mt-2 { margin-top: var(--space-sm); }
+.mb-2 { margin-bottom: var(--space-sm); }
+.mt-3 { margin-top: var(--space-md); }
+.mb-3 { margin-bottom: var(--space-md); }
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+  :root {
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+  }
+  
+  .banner-background {
+    padding: var(--space-lg) var(--space-md);
+  }
+  
+  .stats-display {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+  
+  .responsive-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   ANIMATIONS & TRANSITIONS
+   ============================================ */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Smooth scroll offset for sticky header */
+html {
+  scroll-padding-top: 100px;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--gold-accent);
+  color: var(--white);
+}
+
+::-moz-selection {
+  background: var(--gold-accent);
+  color: var(--white);
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus states for accessibility */
+*:focus-visible {
+  outline: 3px solid var(--gold-accent);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+@media print {
+  .header-bar,
+  .full-width-footer,
+  .primary-button,
+  .secondary-button {
+    display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
+  }
+}
