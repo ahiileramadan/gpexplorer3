@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Site statique HTML pour le merchandising GP Explorer 3",
   "scripts": {
-    "build": "echo 'No build needed - static site'"
+    "build": "echo 'Static site - no build required'"
   }
 }
 
